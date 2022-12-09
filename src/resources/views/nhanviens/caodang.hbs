@@ -1,0 +1,91 @@
+{{> header}}
+
+<div class="mt-4 container-lg">
+  <div class="d-flex justify-content-center ">
+    <h1 class="font-weight-bold">Danh sách nhân viên có trình độ Cao đẳng</h1>
+  </div>
+
+  {{!-- <form action="/nhanvien/searchpost" method="post" class=" d-flex justify-content-center mt-5">
+    <div class="input-group">
+      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+        aria-describedby="search-addon" id="ho_ten" name="ho_ten" />
+      <button type="submit" class="btn btn-outline-primary">search</button>
+    </div>
+  </form> --}}
+    <h4>Tổng số: {{totalItems}}</h4>
+  <div class="row mt-4 justify-content-center">
+
+    <table class="table">
+      {{!-- Title --}}
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Họ và tên</th>
+          <th scope="col">Trình độ</th>
+          <th scope="col">Giới tính</th>
+          <th scope="col">Chức danh</th>
+          <th scope="col">Thao tác</th>
+        </tr>
+      </thead>
+      {{!-- Body --}}
+      <tbody  class="fade-in-component">
+        {{#each nhanviens as |nhanvien|}}
+        <tr>
+          {{!-- <th scope="row">1</th> --}}
+          <td>{{nhanvien._id}}</td>
+          <td>{{nhanvien.ho_ten}}</td>
+          {{!-- {{#with nhanvien.dia_chi}}
+          <td>{{khom_ap}}</td>
+          {{/with}} --}}
+          <td>{{nhanvien.trinh_do_chuyen_mon}}</td>
+          <td>{{nhanvien.gioi_tinh}}</td>
+          <td>{{nhanvien.chuc_danh}}</td>
+          <td>
+            <a class="btn btn-outline-primary" href="/nhanvien/{{this._id}}" role="button">Xem chi tiết</a>
+
+            {{!-- <a href="/nhanvien/{{this._id}}" class="btn btn-link">Xem chi tiết</a> --}}
+            {{!-- <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-taget="#delete-course-modal"
+              data-id="{{this._id}}">Xóa</a> --}}
+            <a href="#" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-course-modal"
+              data-id="{{this._id}}">Xóa</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+     <nav aria-label="...">
+      <ul class="pagination d-flex justify-content-center ">
+
+        {{#if (equalOr currentPage '1' '')}} <li class="page-item disabled"><span class="page-link">Previous</span>
+        </li>
+        {{else}}
+        <li class="page-item">
+          <a class="page-link" href="?page={{previousPage}}">Previous</a>
+        </li>
+        {{/if}}
+
+        {{#times totalPages}}
+        <li class="page-item {{#if (equal @index previousPage)}} active {{else}} {{/if}}">
+          <a class="page-link " href="?page={{sum @index 1}}">{{sum @index 1}}</a>
+          {{!-- <a class="page-link " href=".">{{sum @index 1}}</a> --}}
+          {{!-- <a class="page-link " href="?page={{sum @index 1}}">{{sum @index 1}}</a> --}}
+
+        </li>
+        {{/times}}
+        {{#if (equal currentPage lastPage)}}<li class="page-item disabled"><span class="page-link">Next Page</span>
+        </li>
+        {{else}}
+
+        <li class="page-item">
+          <a class="page-link" href="?page={{nextPage}}">Next Page</a>
+        </li>
+        {{/if}}
+        {{!-- <h1>{{url}}</h1> --}}
+      </ul>
+    </nav>
+</div>
+
+<!-- Confirm Delete Modal -->
+{{>deleteModal}}
+{{> footer}}

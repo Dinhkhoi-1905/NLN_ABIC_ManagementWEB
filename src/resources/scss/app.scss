@@ -1,0 +1,62 @@
+@import 'variables';
+.test {
+    font-size: 1 rem;
+    color: red;
+}
+
+h1 {
+    color: rgb(39, 34, 34);
+    font-family: Segoe UI;
+    font-weight: lighter;
+    line-height: 1.5;
+	// font-weight: 600;
+}
+
+h2 {
+    color: $my-color;
+}
+.form-width{
+    width: 500px;
+    margin-left: 100px;
+  }
+.input-group{
+    width: 60%;
+}
+.table{
+    width: 100%;
+}
+.headtext{
+    color: rgb(39, 34, 34);
+    font-family: Segoe UI;
+    font-weight: lighter;
+    line-height: 1.5;
+}
+.container-fluid{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.footer-position{
+    height:30px;
+    margin: 0;
+    clear: both;
+    width:100%;
+    position: relative;
+}
+.div-width-50{
+    width: 50%;
+}
+.fade-in-component{
+    
+    animation: fadeIn .5s;
+  }
+.fade-in-text {
+    font-size: 70px;
+    animation: fadeIn 3s;
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+
+ 

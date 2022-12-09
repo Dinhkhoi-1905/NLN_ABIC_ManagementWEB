@@ -1,0 +1,125 @@
+{{> header}}
+<div class="d-flex justify-content-center ">
+  <h1 class="font-weight-bold">Chỉnh sửa thông tin nhân viên</h1>
+  </div>
+
+  <div class="d-flex justify-content-center ">
+    <div class="m-5 justify-content-center div-width-50">
+  <form method="POST" action="/nhanvien/update/{{nhanvien._id}}?_method=PUT">
+
+    <label for="ho_ten" class="form-label"><h5>Họ và tên nhân viên</h5></label>
+    <input type="text" class="form-control" id="ho_ten" name="ho_ten" value="{{nhanvien.ho_ten}}"> 
+
+
+    <label for="gioi_tinh" class="form-label"><h5>Giới tính</h5></label>
+    <input type="text" class="form-control" id="gioi_tinh" name="gioi_tinh" value="{{nhanvien.gioi_tinh}}">
+
+    <label for="ngay_sinh" class="form-label"> <h5>Ngày sinh</h5> </label>
+    <input type="date" class="form-control" id="ngay_sinh" name="ngay_sinh" value="{{conversedDate nhanvien.ngay_sinh}}">
+
+    <label for="exampleFormControlInput1" class="form-label"><h5>Số nhà</h5></label>
+    <input type="text" class="form-control" id="dia_chi.so_nha" name="dia_chi.so_nha"  value="{{nhanvien.dia_chi.so_nha}}">
+    
+    <label for="exampleFormControlInput1" class="form-label"><h5>Khóm/ấp</h5></label>
+    <input type="text" class="form-control" id="dia_chi.khom_ap" name="dia_chi.khom_ap" value="{{nhanvien.dia_chi.khom_ap}}" >
+
+    <label for="exampleFormControlInput1" class="form-label"><h5>Phường/Xã</h5></label>
+    <input type="text" class="form-control" id="dia_chi.phuong_xa" name="dia_chi.phuong_xa"  value="{{nhanvien.dia_chi.phuong_xa}}">
+
+    <label for="exampleFormControlInput1" class="form-label"><h5>Quận/Huyện</h5></label>
+    <input type="text" class="form-control" id="dia_chi.quan_huyen" name="dia_chi.quan_huyen" value="{{nhanvien.dia_chi.quan_huyen}}" >
+
+    <label for="exampleFormControlInput1" class="form-label"><h5>Tỉnh/Thành phố</h5></label>
+    <input type="text" class="form-control" id="dia_chi.tinh_tp" name="dia_chi.tinh_tp" value="{{nhanvien.dia_chi.tinh_tp}}" >
+{{!--  --}}
+    <label for="exampleFormControlInput1" class="form-label"><h5>Ngày vào ABIC</h5></label>
+    <input type="date" class="form-control" id="ngay_vao_ABIC" name="ngay_vao_ABIC" value="{{conversedDate nhanvien.ngay_vao_ABIC}}">
+
+    <label for="exampleFormControlInput1" class="form-label"><h5>Trình độ chuyên môn </h5></label>
+    <input type="text" class="form-control" id="trinh_do_chuyen_mon" name="trinh_do_chuyen_mon" value="{{nhanvien.trinh_do_chuyen_mon}}">
+
+    <label for="exampleFormControlInput1" class="form-label"><h5>Lớp nghiệp vụ</h5> </label> <br />
+    <label for="exampleFormControlInput1" class="form-label">- Ngày cấp chứng chỉ </label>
+      <input type="date" class="form-control" id="lop_nghiep_vu.ngay_cap_chung_chi" name="lop_nghiep_vu.ngay_cap_chung_chi" value="{{conversedDate nhanvien.lop_nghiep_vu.ngay_cap_chung_chi}}">
+
+    <label for="exampleFormControlInput1" class="form-label">- Nội dung </label>
+      <input type="text" class="form-control" id="lop_nghiep_vu.noi_dung" name="lop_nghiep_vu.noi_dung" value="{{nhanvien.lop_nghiep_vu.noi_dung}}">
+
+    <label for="exampleFormControlInput1" class="form-label"><h5>Lớp bồi dưỡng </h5></label><br />
+    <label for="exampleFormControlInput1" class="form-label">- Ngày đào tạo </label>
+      <input type="date" class="form-control" id="lop_boi_duong.ngay_dao_tao" name="lop_boi_duong.ngay_dao_tao" value="{{conversedDate nhanvien.lop_boi_duong.ngay_dao_tao}}">
+    <label for="exampleFormControlInput1" class="form-label">- Nội dung: </label>
+      <input type="text" class="form-control" id="lop_boi_duong.noi_dung" name="lop_boi_duong.noi_dung" value="{{nhanvien.lop_boi_duong.noi_dung}}">
+
+{{!--     
+      <input type="text" class="form-control" id="lop_nghiep_vu.ngay_cap_chung_chi" name="lop_nghiep_vu.ngay_cap_chung_chi">
+    <label for="exampleFormControlInput1" class="form-label">- Nội dung: </label>
+      <input type="text" class="form-control" id="lop_nghiep_vu.noi_dung" name="lop_nghiep_vu.noi_dung">
+    <textarea class="form-control" id="exampleFormControlTextarea1" aria-valuetext="adas" >
+      - Ngày đào tạo: {{conversedDate nhanvien.lop_boi_duong.ngay_dao_tao}} 
+      - Nội dung: {{nhanvien.lop_boi_duong.noi_dung}}</textarea> --}}
+
+    <label for="exampleFormControlInput1" class="form-label"><h5>Đảng viên </h5></label>
+    <div class="form-check">
+      <fieldset>
+        <input class="form-check-input" type="radio" value="true" id="dang_vien" name="dang_vien" checked="true">
+        <label class="form-check-label" for="defaultCheck1" >Là Đảng viên</label> <br />
+        <input class="form-check-input" type="radio" value="false" id="dang_vien" name="dang_vien">
+        <label class="form-check-label" for="defaultCheck1">Không là Đảng viên</label>
+      </fieldset>
+      
+    </div>
+    {{!-- <input type="text" class="form-control" id="dang_vien" name="dang_vien"> --}}
+
+    <label for="exampleFormControlInput1" class="form-label"><h5>Chức danh</h5></label>
+    <input type="text" class="form-control" id="chuc_danh" name="chuc_danh"  value="{{nhanvien.chuc_danh}}">
+
+
+    <label for="exampleFormControlInput1" class="form-label"><h5>Bộ phận công tác</h5></label> <br />
+    <label for="exampleFormControlInput1" class="form-label">- Phòng</label>
+    <input type="text" class="form-control" id="bo_phan_cong_tac.phong" name="bo_phan_cong_tac.phong" value="{{nhanvien.bo_phan_cong_tac.phong}}">    
+
+    <label for="exampleFormControlInput1" class="form-label">- Chi nhánh</label>
+    <input type="text" class="form-control" id="bo_phan_cong_tac.chi_nhanh" name="bo_phan_cong_tac.chi_nhanh" value="{{nhanvien.bo_phan_cong_tac.chi_nhanh}}">
+
+
+    <label for="exampleFormControlInput1" class="form-label"><h5>Ngày nghỉ hưu</h5></label>
+    <input type="date" class="form-control" id="ngay_nghi_huu" name="ngay_nghi_huu" value="{{conversedDate nhanvien.ngay_nghi_huu}}">
+    
+    <label for="exampleFormControlInput1" class="form-label"><h5>Ghi chú</h5></label>
+    <input type="text" class="form-control" id="ghi_chu" name="ghi_chu" value="{{nhanvien.ghi_chu}}">
+
+    <button type="submit" class="btn btn btn-outline-primary mt-3">Cập nhật thay đổi</button>
+  </form>
+</div>
+  </div>
+
+
+{{!-- {{> footer}} --}}
+<div class="container bottom-0 end-0 p-5">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top footer-position">
+    <p class="col-md-4 mb-0 text-muted">© 2021 Company, Inc</p>
+
+    <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+    </a>
+
+    <ul class="nav col-md-4 justify-content-end">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+    </ul>
+  </footer>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

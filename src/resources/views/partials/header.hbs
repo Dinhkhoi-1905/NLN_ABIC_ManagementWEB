@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="app">
+    {{!-- test --}}
+    <nav class="navbar navbar-expand-lg navbar-light rounded  shadow p-3 mb-5 bg-body">
+  <div class="container-fluid ">
+    <a class="navbar-brand" href="/"><img src="https://abic.com.vn/Styles/images/logo.png" alt="Abic"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item ">
+          <a class="nav-link " aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/nhanvien/list">Danh sách nhân viên</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Thống kê
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <li><a class="dropdown-item" href="/nhanvien/notdangvien">Nhân viên chưa kết nạp Đảng</a></li>
+            <li><a class="dropdown-item" href="/nhanvien/dangvien">Nhân viên là Đảng viên</a></li>
+            <li><a class="dropdown-item" href="/nhanvien/birthday">Nhân viên có sinh nhật trong tháng</a></li>
+            <li><a class="dropdown-item" href="/nhanvien/caodang">Nhân viên có trình độ Cao đẳng</a></li>
+            <li><a class="dropdown-item" href="/nhanvien/daihoc">Nhân viên có trình độ Đại học</a></li>
+            {{!-- <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/nhanvien/create">Thêm nhân viên</a></li> --}}
+
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Đăng nhập</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/nhanvien/create">Thêm nhân viên</a>
+        </li>
+      </ul>
+      {{!-- <form class="d-flex"> --}}
+        {{!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button> --}}
+          <form class="d-flex" method="post" action="/Auth/signout">   
+            {{!-- <button type="submit" class=" btn nav-link   ">Đăng xuất</button>   --}}
+            <button type="submit" class="btn btn-outline-danger">Đăng xuất</button>
+      
+          </form>
+      {{!-- </form> --}}
+    </div>
+  </div>
+</nav>
+    {{!-- <nav class="navbar navbar-expand-lg bg-light shadow p-3 mb-5 bg-body rounded">
+        <div class="container-fluid mx-5 ">
+            <a class="navbar-brand " href="#">Navbar</a>
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active " aria-current="page" href="/">Home</a>
+                    <a class="nav-link" href="/nhanvien/list">Danh sách nhân viên</a>
+                    <a class="nav-link" href="/nhanvien/create">Thêm nhân viên</a>
+                    <a class="nav-link" href="/Auth/signin">Đăng nhập</a>
+                </div>
+            </div>
+          </div>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+                  <form method="post" action="/Auth/signout">   
+            <button type="submit" class=" btn   nav-link  rounded ">Signout</button>        
+          </form>
+        </li>
+      </ul>
+    </nav> --}}

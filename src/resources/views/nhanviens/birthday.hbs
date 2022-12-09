@@ -1,0 +1,62 @@
+{{> header}}
+
+<div class="mt-4 container-lg">
+  <div class="d-flex justify-content-center ">
+    <h1 class="font-weight-bold">Danh sách nhân viên có sinh nhật trong tháng</h1>
+  </div>
+
+  {{!-- <form action="/nhanvien/searchpost" method="post" class=" d-flex justify-content-center mt-5">
+    <div class="input-group">
+      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+        aria-describedby="search-addon" id="ho_ten" name="ho_ten" />
+      <button type="submit" class="btn btn-outline-primary">search</button>
+    </div>
+  </form> --}}
+  <div class="row mt-4 justify-content-center">
+
+    <table class="table">
+      {{!-- Title --}}
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Họ và tên</th>
+          <th scope="col">Ngày sinh</th>
+          <th scope="col">Giới tính</th>
+          <th scope="col">Phòng</th>
+          <th scope="col">Thao tác</th>
+        </tr>
+      </thead>
+      {{!-- Body --}}
+
+      <tbody  class="fade-in-component">
+        {{#each nhanviens as |nhanvien|}}
+        {{#if (compareMonth nhanvien.ngay_sinh)}} 
+        <tr>
+          <td>{{nhanvien._id}}</td>
+          <td>{{nhanvien.ho_ten}}</td>
+
+          {{!-- {{#with nhanvien.dia_chi}}
+          <td>{{khom_ap}}</td>
+          {{/with}} --}}
+
+          <td>{{formattedDate nhanvien.ngay_sinh}}</td>
+          <td>{{nhanvien.gioi_tinh}}</td>
+          <td>{{nhanvien.bo_phan_cong_tac.phong}}</td>
+          <td>
+            {{!-- <a href="/nhanvien/{{this._id}}" class="btn btn-link">Xem chi tiết</a>
+            <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-ta="#delete-course-modal"
+              data-id="{{this._id}}">Xóa</a> --}}
+              {{>thaotac}}
+          </td>
+        </tr>
+        {{else}}{{/if}}
+        {{/each}}
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Confirm Delete Modal -->
+{{>deleteModal}}
+{{> footer}}

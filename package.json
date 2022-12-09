@@ -1,0 +1,49 @@
+{
+  "name": "helloworldfolder",
+  "version": "1.0.0",
+  "description": "My fist web app with NodeJS",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N00bKi660/NodeJS_Hello.git"
+  },
+  "keywords": [
+    "nodejs",
+    "khoi",
+    "hello"
+  ],
+  "author": "Dinh Khoi Tran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/N00bKi660/NodeJS_Hello/issues"
+  },
+  "homepage": "https://github.com/N00bKi660/NodeJS_Hello#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-session": "^2.0.0",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.4",
+    "mongoose": "^6.5.2",
+    "mongoose-date-format": "^1.2.0",
+    "mongoose-paginate-v2": "^1.7.1",
+    "mongoose-slug-generator": "^1.0.4",
+    "nodemon": "^2.0.19",
+    "serve-index": "^1.9.1",
+    "serve-static": "^1.15.0",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "node-sass": "^7.0.1"
+  }
+}

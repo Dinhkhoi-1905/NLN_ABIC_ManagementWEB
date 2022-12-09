@@ -1,0 +1,42 @@
+<div class="modal fade" id="delete-course-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa nhân viên</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn chắc chắn muốn xóa nhân viên này, hành động này không thể phục hồi?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" id="btn-confirm-delete">Xác nhận xóa</button>
+        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+<form name="delete-course-form" id="delete-course-form" method="POST"></form>
+<script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+
+    var nhanvienId;
+    var deleteForm = document.forms['delete-course-form'];
+    var btnDelete = document.getElementById('btn-confirm-delete');
+
+    //When dialog confirm click
+    $('#delete-course-modal').on('shown.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      nhanvienId = button.data('id');
+
+      //console.log(courseId);
+    });
+    //When delete course btn click
+    btnDelete.onclick = function () {
+      //alert(nhanvienId);
+      deleteForm.action = '/nhanvien/' + nhanvienId + '?_method=DELETE';
+      deleteForm.submit();
+    };
+  })
+</script>
